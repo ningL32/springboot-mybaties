@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ningl.mybaties.dao.IdiomDao">
+
+    <select id="findIdioms" resultType="map">
+        select * from play_idiom
+    </select>
+
+    <insert id="addIdiom" parameterType="String" useGeneratedKeys="true"
+            keyProperty="id">
+      insert into play_idiom (idiom)
+      values (#{idiom})
+    </insert>
+
+    <delete id="delteIdioms" parameterType="map">
+        delete from play_idiom where 1=1 AND id in
+        <foreach collection="ids" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+</mapper>

@@ -1,0 +1,30 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8083
+  servlet:
+    context-path: /mybaties
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/testshiro?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: root
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+    resources:
+            static-locations: classpath:/static/,classpath:/templates/view/
+    thymeleaf:
+            suffix: .html
+            prefix: classpath:/templates/view/
+            mode: HTML5
+            encoding: UTF-8
+            cache: false
+mybatis:
+    mapper-locations: classpath:mappers/*Mapper.xml
+    type-aliases-package: com.ningl.mybaties.dao
+
